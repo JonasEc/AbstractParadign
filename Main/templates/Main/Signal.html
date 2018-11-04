@@ -1,0 +1,13 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+	Signal
+{% endblock %}
+
+{% block content %}
+
+	<p> We drew a random participant and compared them to your participant. In this exam, the randomly chosen other participant {% if signal %}<b> scored better</b>{% else %}<b> scored less well</b>{% endif %} than your participant.
+	{% next_button %}
+
+{% endblock %}

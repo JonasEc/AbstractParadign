@@ -1,0 +1,87 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+	Update
+{% endblock %}
+
+{% block content %}
+
+<p> How highly ranked do you think is your participant? </p>
+
+<div class="wrapper">
+    <div class='categories' id='noughth'>
+    <pre> |      A      |      B      |      C       |      D      |      E      |      F     |</pre>
+    </div>
+  {% formfield player.update  %}
+<!--     <div class='updates' id='first'>
+    <span> Rank: {{update}}</span>
+    </div> -->
+</div>
+
+
+	{% next_button %}
+
+{% endblock %}
+
+
+{% block styles %}
+  
+<style type="text/css">
+.wrapper {
+  position: relative;
+}
+
+
+
+.categories {
+  position: absolute;
+  top: -5px;
+  left: 74px;
+  border-color: grey;
+  border-style: none;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-bottom: 4px;
+  padding-top: 4px;
+}
+
+/*.updates {
+  position: absolute;
+  top: 65px;
+  right: 745px;
+  border-color: grey;
+  border-style: solid;
+  border-width: 1px; 
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-bottom: 4px;
+  padding-top: 4px;
+}*/
+
+</style>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+
+//    document.getElementsByClassName('input-group-text')[0].style.visibility = 'hidden';
+
+    document.getElementsByClassName('col-form-label')[0].style.visibility = 'hidden';
+
+    // $('input[name=update]').on('input', function(){
+    //         var b = $('input[name=update]').val()
+    //         document.getElementById("first").textContent = "Rank: " +b 
+    // });
+
+    // $("document").ready(function() {
+    //     setTimeout(function() {
+    //        $('input[name=update]').val({{update|json}});
+    //     },5);
+    // });
+
+
+    </script>
+
+
+{% endblock %}
