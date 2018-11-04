@@ -20,13 +20,13 @@ class Constants(BaseConstants):
 
 	NumPeople = 60
 
-	categories = {  'A': [1,10],
-					'B': [11,20],
-					'C': [21,30],
-					'D': [31,40],
-					'E': [41,50],
-					'F': [51,60]
-				}
+	# categories = {  'A': [1,10],
+	# 				'B': [11,20],
+	# 				'C': [21,30],
+	# 				'D': [31,40],
+	# 				'E': [41,50],
+	# 				'F': [51,60]
+	# 			}
 
 class Subsession(BaseSubsession):
 	def creating_session(self):
@@ -43,6 +43,7 @@ class Player(BasePlayer):
 	truth = models.PositiveIntegerField()
 	signal = models.PositiveIntegerField()
 	update = models.PositiveIntegerField(min=1,max=Constants.NumPeople,widget=AdvancedSliderWidget(attrs={'step': 1,'tick_interval': 10 ,},show_value=True), initial=1)
+	# update = models.PositiveIntegerField(min=1,max=Constants.NumPeople, initial=1, widget = widgets.Slider)
 
 	def genSignal(self):
 		r = random.randint(1,Constants.NumPeople)

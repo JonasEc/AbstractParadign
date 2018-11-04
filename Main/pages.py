@@ -26,7 +26,7 @@ class Update(Page):
 			signal = 0
 
 		return {
-				'cats': Constants.categories,
+				# 'cats': Constants.categories,
 				'update': update,
 				'signal': signal
 				}
@@ -37,7 +37,7 @@ class Update(Page):
 class Signal(Page):
 	def vars_for_template(self):
 		return {
-				'cats': Constants.categories,
+				# 'cats': Constants.categories,
 				'signal': self.player.signal,
 				'update': self.player.update
 		}
