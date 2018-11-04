@@ -42,7 +42,7 @@ class Group(BaseGroup):
 class Player(BasePlayer):
 	truth = models.PositiveIntegerField()
 	signal = models.PositiveIntegerField()
-	update = models.PositiveIntegerField(min=1,max=Constants.NumPeople, widget=AdvancedSliderWidget(attrs={'step': 1,'tick_interval': 10 ,},show_value=True), initial = 1)
+	update = models.PositiveIntegerField(min=1,max=Constants.NumPeople,widget=AdvancedSliderWidget(attrs={'step': 1,'tick_interval': 10 ,},show_value=True), initial=1)
 
 	def genSignal(self):
 		r = random.randint(1,Constants.NumPeople)
