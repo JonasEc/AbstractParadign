@@ -1,2 +1,1 @@
 otree>=2.0.27
-otree_tools==0.3.2
