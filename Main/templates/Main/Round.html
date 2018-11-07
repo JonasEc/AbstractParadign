@@ -7,33 +7,9 @@
 
 {% block content %}
 
-<p> Out of the {{Constants.NumPeopleLessOne}} classmates, one student was randomly picked in this round. </p>
+<p> Out of the {{Constants.NumPeopleLessOne}} classmates, one was randomly picked in this round. </p>
 
-<p style="font-size:28px"> Student X was {% if signal %}<b> worse </b>{% else %}<b> better </b>{% endif %} than this student in this exam. </p>
-
-
-
-{% if modeTransition %}
-
-<p> You have now seen {{Constants.PrePeriod}} comparisons. You are now ready to make your first estimate of the ranking of student X. From now on, we will present you with one comparison each round after which you will report your estimate of the ranking of student X. </p>
-
-{% endif %} 
-
-
-{% if update %}
-<p> Your last estimate of the ranking of student X was {{update}}. 
-I you want to change your estimate, change the number below. Otherwise, just click “Next”.
- </p>
-
-
-
-{% else %}
-
-
-{% endif %}
-
-
-{% formfield player.update label="Please enter your estimate of student X's rank:" %}
+<p style="font-size:28px"> Student X was {% if signal %}<b> worse </b>{% else %}<b> better </b>{% endif %} than this classmate in this exam. </p>
 
 
 
@@ -119,6 +95,37 @@ I you want to change your estimate, change the number below. Otherwise, just cli
     </table>
 
   {% endif %} 
+
+
+
+
+{% if modeTransition %}
+
+<p> You have now seen {{Constants.PrePeriod}} comparisons. You are now ready to make your first estimate of the ranking of student X. From now on, we will present you with one comparison each round after which you will report your estimate of the ranking of student X. </p>
+
+{% endif %} 
+
+
+{% if update %}
+<p> Your current estimate of the ranking of student X was <b>{{update}}</b>. </p>
+
+<p> 
+I you want to change your estimate, change the number below. Otherwise, just click “Next”.
+ </p>
+
+{% formfield player.update label="Your new estimate:" %}
+
+
+
+{% else %}
+
+{% formfield player.update label="Your initial estimate:" %}
+
+
+{% endif %}
+
+
+
 
 
 
