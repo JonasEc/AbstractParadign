@@ -17,7 +17,7 @@ class Constants(BaseConstants):
 	name_in_url = 'Main'
 	players_per_group = None
 	
-	num_rounds = 30
+	num_rounds = 10
 	PrePeriod = 5
 	RemPeriod = num_rounds - PrePeriod
 
@@ -67,7 +67,7 @@ class Player(BasePlayer):
 	def findPayoffs(self):
 		r1 = random.randint(Constants.PrePeriod, Constants.num_rounds)
 
-		payoff  = max(0,Constants.QuadBonus - 1/100*(self.in_round(r1).update  -self.participant.vars['truth'])**2)
+		payoff  = max(0,Constants.QuadBonus - 1/100*(self.in_round(r1).update  - self.participant.vars['truth'])**2)
 
 		if self.participant.vars['Treatment'][0]:
 			pdic = {0: range(1,11), 1: range(11,21), 2: range(21,31), 3: range(31,41),4: range(41,51),5: range(51,61)}
@@ -79,4 +79,6 @@ class Player(BasePlayer):
 		if self.participant.vars['truth'] in pdic[self.finalguess]:
 			payoff += Constants.GradeBonus
 
-		self.payoff = payoff
+		# self.payoff = payoff
+	
+		return payoff
