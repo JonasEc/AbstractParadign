@@ -12,7 +12,6 @@
 <p style="font-size:28px"> Student X was {% if signal %}<b> worse </b>{% else %}<b> better </b>{% endif %} than this classmate in this exam. </p>
 
 
-
 <p> Reminder: 1 means the student had the best score in the class. {{Constants.NumPeople}} means the student had the worst score in the class. The grading scheme is shwon below. </p>
 
 {% if treatmentMany %}
@@ -107,7 +106,7 @@
 
 
 {% if update %}
-<p> Your current estimate of the ranking of student X was <b>{{update}}</b>. </p>
+<p> Your current estimate of the ranking of student X is <b>{{update}}</b>. </p>
 
 <p> 
 I you want to change your estimate, change the number below. Otherwise, just click “Next”.

@@ -57,9 +57,9 @@ class Player(BasePlayer):
 			r = random.randint(1,Constants.NumPeople)
 
 		if r < self.participant.vars['truth']:
-			return 0
+			return 1  ## 1 means X did WORSE
 		else:
-			return 1
+			return 0  ## 0 means X did BETTER
 
 
 	def findPayoffs(self):
@@ -78,5 +78,3 @@ class Player(BasePlayer):
 			payoff += Constants.GradeBonus
 
 		self.payoff = payoff
-
-
