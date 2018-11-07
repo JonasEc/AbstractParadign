@@ -1,0 +1,101 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Your Payment
+{% endblock %}
+
+{% block content %}
+
+
+
+<p> Your payoff is determined as follows: </p>
+
+<p> One of your {{Constants.RemPeriod}} guesses about the ranking of student X will be randomly selected at the end and you will receive a bonus that is calculated according to the following rule: </p>
+
+<p style="align:center"> {{Constants.QuadMax}} - 1/100 * (your guess of the ranking - true ranking)^2 </p>
+
+<p> After you have received all pieces of information, we will also ask you once to guess the grade that you think student X received. You will get a bonus of {{Constants.GradeBonus}} if you guess the grade correctly. The grading scheme is reproduced below. </p>
+
+
+	{% if treatmentMany %}
+   <table class="table table-striped">
+        <colgroup>
+            <col width="60%">   
+            <col width="40%">
+        </colgroup>
+        <tr>    
+            <td align="left">Rank 1 - 10: </td>
+            <td align="center"><b> A </b></td>
+        </tr>
+        <tr>    
+            <td align="left">Rank 11 - 20: </td>
+            <td align="center"><b> B </b></td>
+        </tr>
+        <tr>    
+            <td align="left">Rank 21 - 30: </td>
+            <td align="center"><b> C </b></td>
+        </tr>
+        <tr>    
+            <td align="left">Rank 31 - 40: </td>
+            <td align="center"><b> D </b></td>
+        </tr>
+        <tr>    
+            <td align="left">Rank 41 - 50: </td>
+            <td align="center"><b> E </b></td>
+        </tr>        
+        <tr>    
+            <td align="left">Rank 51 - 60: </td>
+            <td align="center"><b> F </b></td>
+        </tr>
+
+    </table>
+
+
+	{% elseif treatmentMiddle %}
+
+   <table class="table table-striped">
+        <colgroup>
+            <col width="60%">   
+            <col width="40%">
+        </colgroup>
+        <tr>    
+            <td align="left">Rank 1 - 20: </td>
+            <td align="center"><b> A </b></td>
+        </tr>
+        <tr>    
+            <td align="left">Rank 21 - 40: </td>
+            <td align="center"><b> B </b></td>
+        </tr>
+        <tr>    
+            <td align="left">Rank 41 - 60: </td>
+            <td align="center"><b> F </b></td>
+        </tr>
+
+    </table>
+
+	{% elseif treatmentFew $}
+
+   <table class="table table-striped">
+        <colgroup>
+            <col width="60%">   
+            <col width="40%">
+        </colgroup>
+        <tr>    
+            <td align="left">Rank 1 - 30: </td>
+            <td align="center"><b> Pass </b></td>
+        </tr>
+        <tr>    
+            <td align="left">Rank 31 - 60: </td>
+            <td align="center"><b> Fail </b></td>
+        </tr>
+
+    </table>
+
+	{% endif %} 
+
+    {% next_button %}
+{% endblock %}
+
+
+

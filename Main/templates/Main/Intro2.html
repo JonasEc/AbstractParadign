@@ -1,0 +1,105 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Your Task
+{% endblock %}
+
+{% block content %}
+
+
+
+<p> Again, there is a class with {{Constants.NumPeople}} students who took a test that was graded according to the scheme below. </p>
+
+<p> One student was randomly selected, call him or her student X. </p>
+
+<p> In the following, you will be paid to guess student X’s precise ranking (where 1 means best and {{Constants.NumPeople}} means worst of the class) as well as the grade student X obtained. </p>
+
+<p> To do so, you will receive information about student X’s performance on the test relative to his or her classmates. Specifically, another classmate will be picked at random, and you will learn whether student X performed better or worse than this classmate. </p>
+
+<p> In total, you will see {{Constants.num_rounds}} comparisons to other classmates. That means, for every comparison, one out of the {{Constants.NumPeopleLessOne}} classmates will be picked and the student's score on the test will be compared to that of student X. That means, the more comparisons you see, the more you will learn about the true ranking of student X in this class. For every round, there is an equal probability that each of the other classmates will be picked, which means that it is in principle possible that the same classmate is picked several times in different rounds. </p>
+
+<p> You will first see {{Constants.PrePeriod}} comparisons. After these {{Constants.PrePeriod}} comparisons, you can make your first estimate. Then, after each new comparison, you can adjust your guess about the ranking of student X. </p>
+
+
+	{% if treatmentMany %}
+   <table class="table table-striped">
+        <colgroup>
+            <col width="60%">   
+            <col width="40%">
+        </colgroup>
+        <tr>    
+            <td align="left">Rank 1 - 10: </td>
+            <td align="center"><b> A </b></td>
+        </tr>
+        <tr>    
+            <td align="left">Rank 11 - 20: </td>
+            <td align="center"><b> B </b></td>
+        </tr>
+        <tr>    
+            <td align="left">Rank 21 - 30: </td>
+            <td align="center"><b> C </b></td>
+        </tr>
+        <tr>    
+            <td align="left">Rank 31 - 40: </td>
+            <td align="center"><b> D </b></td>
+        </tr>
+        <tr>    
+            <td align="left">Rank 41 - 50: </td>
+            <td align="center"><b> E </b></td>
+        </tr>        
+        <tr>    
+            <td align="left">Rank 51 - 60: </td>
+            <td align="center"><b> F </b></td>
+        </tr>
+
+    </table>
+
+
+	{% elseif treatmentMiddle %}
+
+   <table class="table table-striped">
+        <colgroup>
+            <col width="60%">   
+            <col width="40%">
+        </colgroup>
+        <tr>    
+            <td align="left">Rank 1 - 20: </td>
+            <td align="center"><b> A </b></td>
+        </tr>
+        <tr>    
+            <td align="left">Rank 21 - 40: </td>
+            <td align="center"><b> B </b></td>
+        </tr>
+        <tr>    
+            <td align="left">Rank 41 - 60: </td>
+            <td align="center"><b> F </b></td>
+        </tr>
+
+    </table>
+
+	{% elseif treatmentFew $}
+
+   <table class="table table-striped">
+        <colgroup>
+            <col width="60%">   
+            <col width="40%">
+        </colgroup>
+        <tr>    
+            <td align="left">Rank 1 - 30: </td>
+            <td align="center"><b> Pass </b></td>
+        </tr>
+        <tr>    
+            <td align="left">Rank 31 - 60: </td>
+            <td align="center"><b> Fail </b></td>
+        </tr>
+
+    </table>
+
+	{% endif %} 
+
+    {% next_button %}
+{% endblock %}
+
+
+

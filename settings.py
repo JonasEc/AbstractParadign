@@ -17,6 +17,7 @@ SESSION_CONFIGS = [
 		'display_name': "AbstractTest",
 		'num_demo_participants': 3,
 		'app_sequence': ['Main'],
+		'treatment': [1,0,0]
 	},
 ]
 
@@ -59,4 +60,4 @@ DEMO_PAGE_INTRO_HTML = """ """
 SECRET_KEY = 'q#b--+4xg!s2fyfwrbvevien1sx-7=05oz3a81qfr#xpjl%o9^'
 
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
-INSTALLED_APPS = ['otree','otree_tools']
+INSTALLED_APPS = ['otree']#,'otree_tools']

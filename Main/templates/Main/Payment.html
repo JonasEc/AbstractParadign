@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Payment
+{% endblock %}
+
+{% block content %}
+
+<p> Thank you for your participation! Today, you earned {{p}} in addition to your HIT fee of {{Constants.HIT}}.
+ </p>
+
+
+
+    {% next_button %}
+{% endblock %}
+
+
+
