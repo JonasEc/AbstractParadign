@@ -17,7 +17,9 @@ SESSION_CONFIGS = [
 		'display_name': "AbstractTest",
 		'num_demo_participants': 3,
 		'app_sequence': ['Main'],
-		'treatment': [1,0,0]
+		'treatmentMany': 1,
+		'treatmentMiddle': 0,
+		'treatmentFew':0,		
 	},
 ]
 
