@@ -19,78 +19,85 @@
 
 
 	{% if treatmentMany %}
+
+
    <table class="table table-striped">
         <colgroup>
-            <col width="60%">   
-            <col width="40%">
+            <col width="13%">   
+            <col width="14.5%">
+            <col width="14.5%">
+            <col width="14.5%">
+            <col width="14.5%">
+            <col width="14.5%">
+            <col width="14.5%">
         </colgroup>
         <tr>    
-            <td align="left">Rank 1 - 10: </td>
-            <td align="center"><b> A </b></td>
-        </tr>
-        <tr>    
-            <td align="left">Rank 11 - 20: </td>
+            <td align='left'> Letter Grade </td>
+            <td align="center"><b> A </b></td>  
             <td align="center"><b> B </b></td>
-        </tr>
-        <tr>    
-            <td align="left">Rank 21 - 30: </td>
             <td align="center"><b> C </b></td>
-        </tr>
-        <tr>    
-            <td align="left">Rank 31 - 40: </td>
             <td align="center"><b> D </b></td>
-        </tr>
-        <tr>    
-            <td align="left">Rank 41 - 50: </td>
             <td align="center"><b> E </b></td>
+            <td align="center"><b> F </b></td>
         </tr>        
         <tr>    
-            <td align="left">Rank 51 - 60: </td>
-            <td align="center"><b> F </b></td>
+            <td align='left'> Student Rank </td>
+            <td align="center">Rank 1 - 10 </td>
+            <td align="center">Rank 11 - 20 </td>
+            <td align="center">Rank 21 - 30 </td>
+            <td align="center">Rank 31 - 40 </td>
+            <td align="center">Rank 41 - 50 </td>
+            <td align="center">Rank 51 - 60 </td>
         </tr>
 
     </table>
 
 
-	{% elif treatmentMiddle %}
+  {% elif treatmentMiddle %}
+
 
    <table class="table table-striped">
         <colgroup>
-            <col width="60%">   
-            <col width="40%">
+            <col width="25%">   
+            <col width="25%">
+            <col width="25%">
+            <col width="25%">            
         </colgroup>
-        <tr>    
-            <td align="left">Rank 1 - 20: </td>
+        <tr>  
+            <td align='left'> Letter Grade </td>          
             <td align="center"><b> A </b></td>
-        </tr>
-        <tr>    
-            <td align="left">Rank 21 - 40: </td>
             <td align="center"><b> B </b></td>
+            <td align="center"><b> F </b></td>            
         </tr>
         <tr>    
-            <td align="left">Rank 41 - 60: </td>
-            <td align="center"><b> F </b></td>
+            <td align='left'> Student Rank </td>
+            <td align="center">Rank 1 - 20 </td>
+            <td align="center">Rank 21 - 40 </td>
+            <td align="center">Rank 41 - 60 </td>            
         </tr>
-
     </table>
 
-	{% elif treatmentFew %}
+    {% elif treatmentFew %}
+
 
    <table class="table table-striped">
         <colgroup>
-            <col width="60%">   
-            <col width="40%">
+            <col width="26%">   
+            <col width="37%">
+            <col width="37%">
         </colgroup>
-        <tr>    
-            <td align="left">Rank 1 - 30: </td>
+        <tr>  
+            <td align='left'>  Grade </td>          
             <td align="center"><b> Pass </b></td>
-        </tr>
-        <tr>    
-            <td align="left">Rank 31 - 60: </td>
             <td align="center"><b> Fail </b></td>
         </tr>
-
+        <tr>    
+            <td align='center'> Student Rank </td>
+            <td align="center">Rank 1 - 30 </td>
+            <td align="center">Rank 31 - 60 </td>
+        </tr>
     </table>
+
 
 	{% endif %} 
 

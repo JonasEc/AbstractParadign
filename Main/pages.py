@@ -6,11 +6,16 @@ from .models import Constants
 class Intro(Page):
 	def is_displayed(self):
 		if self.round_number == 1:
+			self.player.truth = self.player.participant.vars['truth']
+
 			if 'treatmentMany' in self.session.config:
 				self.player.participant.vars['Treatment']= [self.session.config['treatmentMany'],self.session.config['treatmentMiddle'],self.session.config['treatmentFew']]
 			else:
 				self.player.participant.vars['Treatment']= Constants.treatment			
+			
+
 			return True
+
 		else:
 			return False 
 
@@ -53,7 +58,32 @@ class Intro4(Page):
 
 
 
-class Update(Page):
+
+
+
+class RoundPre(Page):
+	def is_displayed(self):
+		return self.round_number < Constants.PrePeriod
+
+	def vars_for_template(self):
+		treatmentMany = self.player.participant.vars['Treatment'][0]
+		treatmentMiddle = self.player.participant.vars['Treatment'][1]
+		treatmentFew = self.player.participant.vars['Treatment'][2]				
+
+		return {'treatmentMany':treatmentMany, 'treatmentMiddle': treatmentMiddle, 'treatmentFew': treatmentFew ,
+				'round': self.round_number,
+				'signal': self.player.signal
+				}
+
+	def before_next_page(self):
+		self.player.signal = self.player.genSignal()
+
+
+
+
+
+
+class Round(Page):
 	form_model = 'player'
 	form_fields = ['update']
 
@@ -62,20 +92,13 @@ class Update(Page):
 
 
 	def vars_for_template(self):
-		if self.round_number == 1:
-			self.player.truth = self.player.participant.vars['truth']
-
-		# if self.round_number > 1:
-		# 	update= self.player.in_round(self.round_number - 1).update
-		# 	signal= self.player.in_round(self.round_number - 1).signal
-		# else:
-		# 	update = 0
-		# 	signal = 0
-
-		if self.round_number == Constants.PrePeriod:
-			modeTransition = 1
+		if self.round_number > Constants.PrePeriod:
+			update= self.player.in_round(self.round_number - 1).update
+			# signal= self.player.in_round(self.round_number - 1).signal
 		else:
-			modeTransition = 0
+			update = False
+			# signal = 0
+
 
 		treatmentMany = self.player.participant.vars['Treatment'][0]
 		treatmentMiddle = self.player.participant.vars['Treatment'][1]
@@ -83,26 +106,13 @@ class Update(Page):
 
 		return {'treatmentMany':treatmentMany, 'treatmentMiddle': treatmentMiddle, 'treatmentFew': treatmentFew ,
 				'round': self.round_number,
-				# 'update': update,
-				# 'signal': signal,
-				'modeTransition': modeTransition 
+				'update': update,
+				'signal': self.player.signal,
+				'modeTransition': self.round_number == Constants.PrePeriod ,
 				}
 
 	def before_next_page(self):
 		self.player.signal = self.player.genSignal()
-
-
-class Signal(Page):
-	def vars_for_template(self):
-		treatmentMany = self.player.participant.vars['Treatment'][0]
-		treatmentMiddle = self.player.participant.vars['Treatment'][1]
-		treatmentFew = self.player.participant.vars['Treatment'][2]				
-
-		return {'treatmentMany':treatmentMany, 'treatmentMiddle': treatmentMiddle, 'treatmentFew': treatmentFew ,
-				'round': self.round_number,
-				'signal': self.player.signal,
-				'pre': self.round_number < Constants.PrePeriod
-				}
 
 
 
@@ -150,8 +160,8 @@ page_sequence = [
 	Intro2,
 	Intro3,
 	Intro4,
-	Signal,
-	Update,
+	RoundPre,
+	Round,
 	Grade,	
 	Payment,
 ]
