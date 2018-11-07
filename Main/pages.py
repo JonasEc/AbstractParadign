@@ -6,7 +6,7 @@ from .models import Constants
 class Intro(Page):
 	def is_displayed(self):
 		if self.round_number == 1:
-			if 'treatment' in self.session.config:
+			if 'treatmentMany' in self.session.config:
 				self.player.participant.vars['Treatment']= [self.session.config['treatmentMany'],self.session.config['treatmentMiddle'],self.session.config['treatmentFew']]
 			else:
 				self.player.participant.vars['Treatment']= Constants.treatment			
