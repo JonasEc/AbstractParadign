@@ -86,6 +86,14 @@ class RoundPre(Page):
 
 
 
+class NewDraw(Page):
+	timeout_seconds = 2
+
+	def vars_for_template(self):
+		return {'pre': self.round_number < 5}
+
+
+
 
 
 class Round(Page):
@@ -167,6 +175,7 @@ page_sequence = [
 	Intro4,
 	RoundPre,
 	Round,
+	NewDraw,
 	Grade,	
 	Payment,
 ]

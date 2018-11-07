@@ -12,12 +12,10 @@
 <p style="font-size:28px"> Student X was {% if signal %}<b> worse </b>{% else %}<b> better </b>{% endif %} than this classmate in this exam. </p>
 
 
-<p> Reminder: 1 means the student had the best score in the class. {{Constants.NumPeople}} means the student had the worst score in the class. The grading scheme is shwon below. </p>
-
 {% if treatmentMany %}
-   <table class="table table-striped">
+    <table class="table table-striped">
         <colgroup>
-          <col width="13%">   
+            <col width="13%">   
             <col width="14.5%">
             <col width="14.5%">
             <col width="14.5%">
@@ -36,12 +34,12 @@
         </tr>        
         <tr>    
             <td align='left'> Student Rank </td>
-            <td align="center">Rank 1 - 10 </td>
-            <td align="center">Rank 11 - 20 </td>
-            <td align="center">Rank 21 - 30 </td>
-            <td align="center">Rank 31 - 40 </td>
-            <td align="center">Rank 41 - 50 </td>
-            <td align="center">Rank 51 - 60 </td>
+            <td align="center"> 1 - 10 </td>
+            <td align="center"> 11 - 20 </td>
+            <td align="center"> 21 - 30 </td>
+            <td align="center"> 31 - 40 </td>
+            <td align="center"> 41 - 50 </td>
+            <td align="center"> 51 - 60 </td>
         </tr>
 
     </table>
@@ -65,15 +63,14 @@
         </tr>
         <tr>    
             <td align='left'> Student Rank </td>
-            <td align="center">Rank 1 - 20 </td>
-            <td align="center">Rank 21 - 40 </td>
-            <td align="center">Rank 41 - 60 </td>            
+            <td align="center"> 1 - 20 </td>
+            <td align="center"> 21 - 40 </td>
+            <td align="center"> 41 - 60 </td>            
         </tr>
     </table>
 
-  {% elif treatmentFew %}
+    {% elif treatmentFew %}
 
- 
 
    <table class="table table-striped">
         <colgroup>
@@ -88,8 +85,8 @@
         </tr>
         <tr>    
             <td align='center'> Student Rank </td>
-            <td align="center">Rank 1 - 30 </td>
-            <td align="center">Rank 31 - 60 </td>
+            <td align="center"> 1 - 30 </td>
+            <td align="center"> 31 - 60 </td>
         </tr>
     </table>
 
@@ -98,9 +95,12 @@
 
 
 
+
 {% if modeTransition %}
 
 <p> You have now seen {{Constants.PrePeriod}} comparisons. You are now ready to make your first estimate of the ranking of student X. From now on, we will present you with one comparison each round after which you will report your estimate of the ranking of student X. </p>
+
+<p> Reminder: 1 means the student had the best score in the class. {{Constants.NumPeople}} means the student had the worst score in the class. </p>
 
 {% endif %} 
 
@@ -109,7 +109,7 @@
 <p> Your current estimate of the ranking of student X is <b>{{update}}</b>. </p>
 
 <p> 
-I you want to change your estimate, change the number below. Otherwise, just click “Next”.
+I you want to <i>change</i> your estimate, change the number below. Otherwise, just click “Next”.
  </p>
 
 {% formfield player.update label="Your new estimate:" %}
