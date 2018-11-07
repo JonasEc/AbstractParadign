@@ -113,6 +113,9 @@ class Grade(Page):
 	form_fields = ['finalguess']
 
 	def is_displayed(self):
+		return self.round_number == Constants.num_rounds
+
+	def vars_for_template(self):
 		treatmentMany = self.player.participant.vars['Treatment'][0]
 		treatmentMiddle = self.player.participant.vars['Treatment'][1]
 		treatmentFew = self.player.participant.vars['Treatment'][2]				
