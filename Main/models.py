@@ -17,8 +17,8 @@ class Constants(BaseConstants):
 	name_in_url = 'Main'
 	players_per_group = None
 	
-	num_rounds = 30
-	PrePeriod = 5
+	num_rounds = 8
+	PrePeriod = 3
 	RemPeriod = num_rounds - PrePeriod
 
 	NumPeople = 60

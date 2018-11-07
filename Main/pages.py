@@ -149,6 +149,6 @@ page_sequence = [
 	Intro4,
 	Signal,
 	Update,
+	Grade,	
 	Payment,
-	Grade	
 ]
