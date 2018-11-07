@@ -68,11 +68,16 @@ class RoundPre(Page):
 	def vars_for_template(self):
 		treatmentMany = self.player.participant.vars['Treatment'][0]
 		treatmentMiddle = self.player.participant.vars['Treatment'][1]
-		treatmentFew = self.player.participant.vars['Treatment'][2]				
+		treatmentFew = self.player.participant.vars['Treatment'][2]		
+
+		if self.round_number == 1:
+			s = self.player.signal	
+		else: 
+			s = self.player.in_round(self.round_number - 1).signal	
 
 		return {'treatmentMany':treatmentMany, 'treatmentMiddle': treatmentMiddle, 'treatmentFew': treatmentFew ,
 				'round': self.round_number,
-				'signal': self.player.signal
+				'signal': s
 				}
 
 	def before_next_page(self):
@@ -107,7 +112,7 @@ class Round(Page):
 		return {'treatmentMany':treatmentMany, 'treatmentMiddle': treatmentMiddle, 'treatmentFew': treatmentFew ,
 				'round': self.round_number,
 				'update': update,
-				'signal': self.player.signal,
+				'signal': self.player.in_round(self.round_number - 1).signal	,
 				'modeTransition': self.round_number == Constants.PrePeriod ,
 				}
 
