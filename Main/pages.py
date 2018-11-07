@@ -48,12 +48,12 @@ class Update(Page):
 		if self.round_number == 1:
 			self.player.truth = self.player.participant.vars['truth']
 
-		if self.round_number > 1:
-			update= self.player.in_round(self.round_number - 1).update
-			signal= self.player.in_round(self.round_number - 1).signal
-		else:
-			update = 0
-			signal = 0
+		# if self.round_number > 1:
+		# 	update= self.player.in_round(self.round_number - 1).update
+		# 	signal= self.player.in_round(self.round_number - 1).signal
+		# else:
+		# 	update = 0
+		# 	signal = 0
 
 		if self.round_number == Constants.PrePeriod:
 			modeTransition = 1
@@ -65,9 +65,9 @@ class Update(Page):
 		treatmentFew = self.player.participant.vars['Treatment'][2]				
 
 		return {'treatmentMany':treatmentMany, 'treatmentMiddle': treatmentMiddle, 'treatmentFew': treatmentFew ,
-				'round': self.round_number
-				'update': update,
-				'signal': signal,
+				'round': self.round_number,
+				# 'update': update,
+				# 'signal': signal,
 				'modeTransition': round5 
 				}
 
@@ -82,11 +82,10 @@ class Signal(Page):
 		treatmentFew = self.player.participant.vars['Treatment'][2]				
 
 		return {'treatmentMany':treatmentMany, 'treatmentMiddle': treatmentMiddle, 'treatmentFew': treatmentFew ,
-				'round': self.round_number
+				'round': self.round_number,
 				'signal': self.player.signal,
-				'update': self.player.update,
 				'pre': self.round_number < Constants.PrePeriod
-		}
+				}
 
 
 
