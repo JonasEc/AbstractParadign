@@ -46,6 +46,7 @@ class Group(BaseGroup):
 class Player(BasePlayer):
 	truth = models.PositiveIntegerField()
 	signal = models.PositiveIntegerField()
+	sigRaw = models.PositiveIntegerField()
 	# update = models.PositiveIntegerField(min=1,max=Constants.NumPeople,widget=AdvancedSliderWidget(attrs={'step': 1,'tick_interval': 10 ,},show_value=True), initial=1)
 	# update = models.PositiveIntegerField(min=1,max=Constants.NumPeople, initial=1, widget = widgets.Slider)
 	update = models.PositiveIntegerField(min=1,max=Constants.NumPeople)
@@ -56,6 +57,7 @@ class Player(BasePlayer):
 		while r == self.truth:
 			r = random.randint(1,Constants.NumPeople)
 
+		self.sigRaw = r
 		if r < self.participant.vars['truth']:
 			return 1  ## 1 means X did WORSE
 		else:
