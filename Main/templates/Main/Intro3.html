@@ -13,9 +13,9 @@
 
 <p> One of your {{Constants.RemPeriod}} guesses about the ranking of student X will be randomly selected at the end and you will receive a bonus that is calculated according to the following rule: </p>
 
-<p style="align:center"> {{Constants.QuadMax}} - 1/100 * (your guess of the ranking - true ranking)^2 </p>
+<p align="center"> <b> Your Bonus</b> = <b>{{Constants.QuadBonus}}</b> - 1/100 * (<b>your guess of the ranking</b> - <b>true ranking</b>)^2 </p>
 
-<p> After you have received all pieces of information, we will also ask you once to guess the grade that you think student X received. You will get a bonus of {{Constants.GradeBonus}} if you guess the grade correctly. The grading scheme is reproduced below. </p>
+<p> After you have received all pieces of information, we will also ask you once to guess the grade that student X received. You will get a bonus of <b>{{Constants.GradeBonus}} if you guess the grade correctly</b>. The grading scheme is reproduced below. </p>
 
 
 	{% if treatmentMany %}
@@ -52,7 +52,7 @@
     </table>
 
 
-	{% elseif treatmentMiddle %}
+	{% elif treatmentMiddle %}
 
    <table class="table table-striped">
         <colgroup>
@@ -74,7 +74,7 @@
 
     </table>
 
-	{% elseif treatmentFew $}
+	{% elif treatmentFew $}
 
    <table class="table table-striped">
         <colgroup>

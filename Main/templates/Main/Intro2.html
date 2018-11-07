@@ -11,11 +11,11 @@
 
 <p> Again, there is a class with {{Constants.NumPeople}} students who took a test that was graded according to the scheme below. </p>
 
-<p> One student was randomly selected, call him or her student X. </p>
+<p> One student was randomly selected, call him or her <b>student X</b>. </p>
 
-<p> In the following, you will be paid to guess student X’s precise ranking (where 1 means best and {{Constants.NumPeople}} means worst of the class) as well as the grade student X obtained. </p>
+<p> In the following, <b>you will be paid to guess student X’s precise ranking</b> (where 1 means best and {{Constants.NumPeople}} means worst of the class) as well as <b>the letter grade student X obtained</b>. </p>
 
-<p> To do so, you will receive information about student X’s performance on the test relative to his or her classmates. Specifically, another classmate will be picked at random, and you will learn whether student X performed better or worse than this classmate. </p>
+<p> To do so, you will receive information about student X’s performance on the test <b>relative</b> to his or her classmates. Specifically, another classmate will be picked at random, and you will learn whether student X performed <b>better or worse than this classmate</b>. </p>
 
 <p> In total, you will see {{Constants.num_rounds}} comparisons to other classmates. That means, for every comparison, one out of the {{Constants.NumPeopleLessOne}} classmates will be picked and the student's score on the test will be compared to that of student X. That means, the more comparisons you see, the more you will learn about the true ranking of student X in this class. For every round, there is an equal probability that each of the other classmates will be picked, which means that it is in principle possible that the same classmate is picked several times in different rounds. </p>
 
@@ -56,7 +56,7 @@
     </table>
 
 
-	{% elseif treatmentMiddle %}
+	{% elif treatmentMiddle %}
 
    <table class="table table-striped">
         <colgroup>
@@ -78,7 +78,7 @@
 
     </table>
 
-	{% elseif treatmentFew $}
+	{% elif treatmentFew $}
 
    <table class="table table-striped">
         <colgroup>

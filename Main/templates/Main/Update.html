@@ -9,26 +9,25 @@
 
 {% if modeTransition %}
 
-<p> You have now seen {{Constants.PrePeriod}} comparisons. You are now ready to make your first estimate of the ranking of student X. From now on, we will present you with one ranking comparison each round after which you will mreport your estimate of the ranking of student X. </p>
+<p> You have now seen {{Constants.PrePeriod}} comparisons. You are now ready to make your first estimate of the ranking of student X. From now on, we will present you with one comparison each round after which you will mreport your estimate of the ranking of student X. </p>
 
 {% endif %} 
 
-<p> Please estimate the ranking of student X in his class. </p>
+<p> <b>Please estimate the ranking of student X in his class.</b> </p>
 
-<p> For this state a number between 1 and {{Constants.NumPeople}}. 1 means the student had the best score in the class. {{Constants.NumPeople}} means the studdent had the worst score in the class. The grading scheme is reported below again: </p>
+<p> For this state a number between 1 and {{Constants.NumPeople}}. 1 means the student had the best score in the class. {{Constants.NumPeople}} means the student had the worst score in the class. The grading scheme is reported below again: </p>
 
 
-{% if treatmendMany %}
-
+{% if treatmentMany %}
    <table class="table table-striped">
         <colgroup>
-            <col width="25%">   
-            <col width="12.5%">
-            <col width="12.5%">
-            <col width="12.5%">
-            <col width="12.5%">
-            <col width="12.5%">
-            <col width="12.5%">
+          <col width="13%">   
+            <col width="14.5%">
+            <col width="14.5%">
+            <col width="14.5%">
+            <col width="14.5%">
+            <col width="14.5%">
+            <col width="14.5%">
         </colgroup>
         <tr>    
             <td align='left'> Letter Grade </td>
@@ -41,18 +40,18 @@
         </tr>        
         <tr>    
             <td align='left'> Student Rank </td>
-            <td align="left">Rank 1 - 10 </td>
-            <td align="left">Rank 11 - 20 </td>
-            <td align="left">Rank 21 - 30 </td>
-            <td align="left">Rank 31 - 40 </td>
-            <td align="left">Rank 41 - 50 </td>
-            <td align="left">Rank 51 - 60 </td>
+            <td align="center">Rank 1 - 10 </td>
+            <td align="center">Rank 11 - 20 </td>
+            <td align="center">Rank 21 - 30 </td>
+            <td align="center">Rank 31 - 40 </td>
+            <td align="center">Rank 41 - 50 </td>
+            <td align="center">Rank 51 - 60 </td>
         </tr>
 
     </table>
 
 
-  {% elseif treatmentMiddle %}
+  {% elif treatmentMiddle %}
 
 
    <table class="table table-striped">
@@ -70,13 +69,13 @@
         </tr>
         <tr>    
             <td align='left'> Student Rank </td>
-            <td align="left">Rank 1 - 20 </td>
-            <td align="left">Rank 21 - 40 </td>
-            <td align="left">Rank 41 - 60 </td>            
+            <td align="center">Rank 1 - 20 </td>
+            <td align="center">Rank 21 - 40 </td>
+            <td align="center">Rank 41 - 60 </td>            
         </tr>
     </table>
 
-  {% elseif treatmentFew $}
+  {% elif treatmentFew $}
 
  
 
@@ -92,14 +91,13 @@
             <td align="center"><b> Fail </b></td>
         </tr>
         <tr>    
-            <td align='left'> Student Rank </td>
-            <td align="left">Rank 1 - 30 </td>
-            <td align="left">Rank 31 - 60 </td>
+            <td align='center'> Student Rank </td>
+            <td align="center">Rank 1 - 30 </td>
+            <td align="center">Rank 31 - 60 </td>
         </tr>
     </table>
 
   {% endif %} 
-
 
 
 {% formfield player.update label="Please enter your estimate of student X's rank:" %}
