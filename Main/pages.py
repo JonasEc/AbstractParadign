@@ -132,7 +132,7 @@ class Grade(Page):
 
 
 	def before_next_page(self):
-		self.player.payoff = self,player.findPayoffs()
+		self.player.payoff = self.player.findPayoffs()
 
 
 

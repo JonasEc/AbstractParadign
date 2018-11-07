@@ -49,7 +49,7 @@ class Player(BasePlayer):
 	# update = models.PositiveIntegerField(min=1,max=Constants.NumPeople,widget=AdvancedSliderWidget(attrs={'step': 1,'tick_interval': 10 ,},show_value=True), initial=1)
 	# update = models.PositiveIntegerField(min=1,max=Constants.NumPeople, initial=1, widget = widgets.Slider)
 	update = models.PositiveIntegerField(min=1,max=Constants.NumPeople)
-	finalguess = models.PositiveIntegerField()
+	finalguess = models.PositiveIntegerField(widget=widgets.RadioSelect)
 
 	def genSignal(self):
 		r = random.randint(1,Constants.NumPeople)
