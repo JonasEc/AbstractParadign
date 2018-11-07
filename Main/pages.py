@@ -124,11 +124,11 @@ class Grade(Page):
 	
 	def finalguess_choices(self):
 		if self.player.participant.vars['Treatment'][0]:
-			return {[0, "A"], [1, "B"], [2, "C"], [3, "D"], [4, "E"], [5, "F"]}
+			return {[[0, "A"], [1, "B"], [2, "C"], [3, "D"], [4, "E"], [5, "F"]]}
 		elif self.player.participant.vars['Treatment'][1]:
-			return {[0, "A"], [1, "B"], [2, "F"]}			
+			return {[[0, "A"], [1, "B"], [2, "F"]]}			
 		elif self.player.participant.vars['Treatment'][2]:
-			return {[0, "Pass"], [1, "Fail"]}
+			return {[[0, "Pass"], [1, "Fail"]]}
 
 
 	def before_next_page(self):
