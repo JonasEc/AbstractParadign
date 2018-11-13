@@ -7,17 +7,15 @@
 
 {% block content %}
 
+<p> Of the class of {{Constants.NumPeople}} in the class, <b>one</b> student was randomly selected: call him or her <b>student X</b>. </p>
 
+<p> At the end of the experiment, you will guess what <b>letter grade</b> this student X received. </p>
 
-<p> Again, there is a class with {{Constants.NumPeople}} students who took a test that was graded according to the grading scheme shown before. </p>
+<p> You will receive information about student X’s performance on the test <b>relative</b> to his or her classmates. Specifically, in each of {{Constant.num_rounds}} rounds, another classmate will be picked at random and you will learn whether student X performed <b>better or worse than this classmate</b> on the test.</p>
 
-<p> One student was randomly selected, call him or her <b>student X</b>. </p>
+<p> For every round, there is an <b>equal probability</b> that any of the classmates is picked. It is hence possible that the same classmate is picked in more than one round. </p>
 
-<p> In the following, <b>you will be paid to guess student X’s precise ranking</b> (where 1 means best and {{Constants.NumPeople}} means worst of the class) as well as <b>the letter grade student X obtained</b>. </p>
-
-<p> To do so, you will receive information about student X’s performance on the test <b>relative</b> to his or her classmates. Specifically, another classmate will be picked at random, and you will learn whether student X performed <b>better or worse than this classmate</b>. </p>
-
-<p> In total, you will see {{Constants.num_rounds}} comparisons to other classmates. That means, for every comparison, one out of the {{Constants.NumPeopleLessOne}} classmates will be picked and this classmate's score on the test will be compared to that of student X. That means, the more comparisons you see, the more you will learn about the true ranking of student X in this class. For every round, there is an equal probability that each of the other classmates will be picked, which means that it is in principle possible that the same classmate is picked several times in different rounds. </p>
+<p> In each round, <b>you will also be paid to guess student X’s precise ranking</b> (where 1 means best and {{Constants.NumPeople}} means worst of the class). </p>
 
 
 

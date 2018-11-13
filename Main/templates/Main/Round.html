@@ -7,7 +7,7 @@
 
 {% block content %}
 
-<p> Out of the {{Constants.NumPeopleLessOne}} classmates, one was randomly picked in this round. </p>
+<p> The computer has picked one classmate out of the {{Constants.NumPeopleLessOne}} people in the class. </p>
 
 <p style="font-size:28px"> Student X was {% if signal %}<b> worse </b>{% else %}<b> better </b>{% endif %} than this classmate in this exam. </p>
 
@@ -98,7 +98,7 @@
 
 {% if modeTransition %}
 
-<p> You have now seen {{Constants.PrePeriod}} comparisons. You are now ready to make your first estimate of the ranking of student X. From now on, we will present you with one comparison each round after which you will report your estimate of the ranking of student X. </p>
+<p> You have now seen {{Constants.PrePeriod}} comparisons: make your first estimate of the ranking of student X.</p>
 
 <p> Reminder: 1 means the student had the best score in the class. {{Constants.NumPeople}} means the student had the worst score in the class. </p>
 
@@ -108,9 +108,9 @@
 {% if update %}
 <p> Your current estimate of the ranking of student X is <b>{{update}}</b>. </p>
 
-<p> 
-I you want to <i>change</i> your estimate, change the number below. Otherwise, just click “Next”.
- </p>
+<!-- <p> 
+If you want to <i>change</i> your estimate, change the number below. Otherwise, just click “Next”.
+ </p> -->
 
 {% formfield player.update label="Your new estimate:" %}
 
