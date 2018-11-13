@@ -1,0 +1,63 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+	Captcha: Please solve the maths problem below
+{% endblock %}
+
+{% block content %}
+
+	<p> Due to a recent increase in the number of bots on MTurk, we need to make sure that you are human. Please solve the maths problem below. </p>
+
+	<p> We apologize for the inconvenience.  </p>
+
+
+	<div class='bottom'>
+<!--		<img src="data:image/png;base64 {{png}}"  style="margin:0 auto; border: 10px solid CadetBlue;"/> -->
+	<img src="data:image/png;base64,{{png}}" class="ImageBorder"/> 
+
+	</div>
+
+
+	{% formfield player.captcha %}
+
+
+	{% next_button %}
+
+
+{% endblock %}
+
+
+
+{% block styles %}
+
+<style type="text/css">
+
+
+div.bottom {
+	padding-bottom: 25px;
+}
+
+</style>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+
+
+$(document).ready(function () {
+
+		if ( {{mis|json}} >= {{maxMis|json}} ) {
+            $('.otree-btn-next').hide();
+		}
+
+        });
+
+
+
+
+</script>
+
+
+{% endblock %}

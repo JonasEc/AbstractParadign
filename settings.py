@@ -1,4 +1,41 @@
+import os
 from os import environ
+
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+FONTS_DIR = os.path.join(BASE_DIR, "_fonts")
+
+	
+
+
+mturk_hit_settings = {
+    'keywords': ['bonus', 'study', 'reseach', 'fun'],
+    'title': 'Research Study: Bonus Payment of up to $2.5',
+    'description': 'In this study, you will receive information and then make guesses. Depending on the accuracy of these guesses you can earn up to $2.5 bonus',
+    'frame_height': 500,
+    'preview_template': 'global/MTurkPreview.html',
+    'minutes_allotted_per_assignment': 75,
+    'expiration_hours': 6, 
+    'qualification_requirements': [
+        {
+            'QualificationTypeId': "00000000000000000071",
+    		'Comparator': "EqualTo",
+    		'LocaleValues': [{'Country': "US"}]
+        },
+        {
+            'QualificationTypeId': "00000000000000000040", ### number of HITs
+            'Comparator': "GreaterThan",
+         	'IntegerValues':[1000]
+        },
+        {
+            'QualificationTypeId': "000000000000000000L0", ### percentage accept of HITs
+            'Comparator': "GreaterThan",
+         	'IntegerValues':[97]
+        }
+    ],
+}
+
+
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
 # in SESSION_CONFIGS, except those that explicitly override it.
@@ -7,16 +44,20 @@ from os import environ
 
 SESSION_CONFIG_DEFAULTS = {
 	'real_world_currency_per_point': 1.00,
-	'participation_fee': 1.00,
+	'participation_fee': 0.50,
 	'doc': "",
+	'mturk_hit_settings': mturk_hit_settings
 }
+
+SESSION_CONFIGS = [
+
 
 SESSION_CONFIGS = [
 	{
 		'name': 'Abstract',
 		'display_name': "AbstractTest",
 		'num_demo_participants': 3,
-		'app_sequence': ['Main'],
+		'app_sequence': ['Captcha','Main'],
 		'treatmentMany': 1,
 		'treatmentMiddle': 0,
 		'treatmentFew':0,		
@@ -48,9 +89,9 @@ ROOMS = []
 # for flexibility, you can set it in the environment variable OTREE_AUTH_LEVEL
 AUTH_LEVEL = environ.get('OTREE_AUTH_LEVEL')
 
-ADMIN_USERNAME = 'admin'
+ADMIN_USERNAME = 'jonasmgoTree'
 # for security, best to set admin password in an environment variable
-ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
+ADMIN_PASSWORD = 'abstractcategoricalthinking'
 
 
 # Consider '', None, and '0' to be empty/false
@@ -59,7 +100,16 @@ DEBUG = (environ.get('OTREE_PRODUCTION') in {None, '', '0'})
 DEMO_PAGE_INTRO_HTML = """ """
 
 # don't share this with anybody.
-SECRET_KEY = 'q#b--+4xg!s2fyfwrbvevien1sx-7=05oz3a81qfr#xpjl%o9^'
+SECRET_KEY = 'b%edt=6o4@qqjxgdp_0f+n*n(v1z*6)3kc=npnba0zvjej0(_k'
+
+
+# setting for integration with AWS Mturk
+AWS_ACCESS_KEY_ID = environ.get('AWSAccessKeyId_Jonas')
+AWS_SECRET_ACCESS_KEY = environ.get('AWSSecretKey_Jonas')
+
+
+
 
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
-INSTALLED_APPS = ['otree']#,'otree_tools']
+INSTALLED_APPS = ['otree']
+
