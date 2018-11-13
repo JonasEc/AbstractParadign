@@ -49,8 +49,6 @@ SESSION_CONFIG_DEFAULTS = {
 	'mturk_hit_settings': mturk_hit_settings
 }
 
-SESSION_CONFIGS = [
-
 
 SESSION_CONFIGS = [
 	{
