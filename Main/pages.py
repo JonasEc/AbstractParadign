@@ -87,7 +87,7 @@ class RoundPre(Page):
 
 
 class NewDraw(Page):
-	timeout_seconds = 2
+	timeout_seconds = 1
 
 	def vars_for_template(self):
 		return {'pre': self.round_number < 5}
